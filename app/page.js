@@ -356,70 +356,73 @@ export default function Home() {
 
   return (
     <>
-      {/* Navbar intégrée directement */}
+      {/* Navbar ajustée pour iPhone 11 */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-gray-900/80 backdrop-blur-md shadow-lg' 
           : 'bg-gray-900/80 backdrop-blur-md shadow-lg'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14 sm:h-16">
             <div className="flex-shrink-0">
               <Image
                 src="/next.svg"
                 alt="Next.js Logo"
-                width={100}
-                height={24}
-                className="w-auto h-6"
+                width={80}
+                height={20}
+                className="w-auto h-5 sm:h-6"
               />
             </div>
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-2 sm:gap-4">
+              <button className="md:hidden text-gray-300 hover:text-white p-2">
+                <i className="fas fa-bars text-lg"></i>
+              </button>
               <div className="hidden md:flex items-center space-x-4">
-                <a href="#" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-gray-800 cursor-pointer">
+                <a href="#" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   Accueil
                 </a>
-                <a href="#" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-gray-800 cursor-pointer">
+                <a href="#" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   Services
                 </a>
-                <a href="#" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-gray-800 cursor-pointer">
+                <a href="#" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                   Contact
                 </a>
               </div>
               <a 
                 href="tel:+33612345678"
-                className="text-gray-300 hover:text-white font-medium flex items-center gap-2 transition-colors duration-200 hover:bg-gray-800 px-3 py-2 rounded-md cursor-pointer"
+                className="text-gray-300 hover:text-white font-medium flex items-center gap-1 sm:gap-2 text-sm sm:text-base"
               >
                 <i className="fas fa-phone"></i>
-                <span>06 12 34 56 78</span>
+                <span className="hidden sm:inline">06 12 34 56 78</span>
               </a>
             </div>
           </div>
         </div>
       </nav>
 
-      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-gray-950 text-gray-200">
-        <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-4xl">
-          <div className="text-center w-full mb-8">
-            <div className="relative w-32 h-32 mx-auto mb-4">
+      {/* Main container avec padding ajusté */}
+      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-3 sm:p-8 pb-16 sm:pb-20 gap-4 sm:gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-gray-950 text-gray-200">
+        <main className="flex flex-col gap-6 sm:gap-8 row-start-2 items-center w-full max-w-4xl">
+          {/* Profile section ajustée */}
+          <div className="text-center w-full mb-4 sm:mb-8 px-3 sm:px-0">
+            <div className="relative w-20 h-20 sm:w-32 sm:h-32 mx-auto mb-3 sm:mb-4">
               <Image
                 src="/pp.jpg"
                 alt="Franck Lidar"
                 fill
                 className="rounded-full object-cover"
-                sizes="(max-width: 128px) 100vw, 128px"
+                sizes="(max-width: 768px) 80px, 128px"
               />
             </div>
-            <h1 className="text-3xl font-bold mb-2 text-gray-100">
+            <h1 className="text-xl sm:text-3xl font-bold mb-2 text-gray-100 px-2">
               Franck Lidar - Consultant RSE
             </h1>
-            <h2 className="text-xl text-gray-400 mb-4">
+            <h2 className="text-base sm:text-xl text-gray-400 mb-3 sm:mb-4">
               Certifié ISO 26000 Label Lucie
             </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto mb-6">
+            <p className="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto mb-4 sm:mb-6 px-3 sm:px-4">
               Expert en Responsabilité Sociétale des Entreprises, j'accompagne les organisations 
-              dans leur transformation vers des pratiques plus durables et responsables. 
-              Fort de 15 ans d'expérience, je propose un accompagnement personnalisé pour 
-              répondre à vos enjeux RSE.
+              dans leur transformation vers des pratiques plus durables et responsables.
             </p>
             <div className="flex justify-center gap-4 mb-8">
               <a 
@@ -449,13 +452,13 @@ export default function Home() {
 
           {!showQuestionnaire ? (
             <>
-              {/* Ajout des cartes de présentation des labels */}
-              <div className="grid md:grid-cols-2 gap-8 w-full mb-8">
+              {/* Cards grid ajustée */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-8 w-full mb-6 sm:mb-8 px-3 sm:px-0">
                 {/* Carte LUCIE Progress */}
-                <div className="p-6 rounded-lg border border-gray-700 bg-gray-900 shadow-lg hover:shadow-xl hover:border-gray-600 transition-all">
-                  <h3 className="text-2xl font-bold mb-4 text-blue-400">Label LUCIE Progress 🏅</h3>
-                  <p className="text-gray-300 mb-4">Premier niveau de reconnaissance de votre engagement RSE</p>
-                  <ul className="space-y-3 mb-6">
+                <div className="p-3 sm:p-6 rounded-lg border border-gray-700 bg-gray-900 shadow-lg">
+                  <h3 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4 text-blue-400">Label LUCIE Progress 🏅</h3>
+                  <p className="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4">Premier niveau de reconnaissance de votre engagement RSE</p>
+                  <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 text-sm sm:text-base">
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check-circle text-green-500"></i>
                       <span>Valorisation de votre démarche RSE</span>
@@ -475,17 +478,17 @@ export default function Home() {
                   </ul>
                   <button 
                     onClick={() => setShowQuestionnaire(true)}
-                    className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-all duration-200 cursor-pointer hover:shadow-lg hover:scale-102"
+                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base bg-blue-600 text-white rounded-md"
                   >
                     Commencer le test de pré-scoring
                   </button>
                 </div>
 
                 {/* Carte LUCIE 26000 */}
-                <div className="p-6 rounded-lg border border-gray-700 bg-gray-900 shadow-lg hover:shadow-xl hover:border-gray-600 transition-all">
-                  <h3 className="text-2xl font-bold mb-4 text-blue-400">Label LUCIE 26000 🏅🏅</h3>
-                  <p className="text-gray-300 mb-4">Label d'excellence en matière de RSE</p>
-                  <ul className="space-y-3 mb-6">
+                <div className="p-3 sm:p-6 rounded-lg border border-gray-700 bg-gray-900 shadow-lg">
+                  <h3 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-4 text-blue-400">Label LUCIE 26000 🏅🏅</h3>
+                  <p className="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4">Label d'excellence en matière de RSE</p>
+                  <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 text-sm sm:text-base">
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check-circle text-green-500"></i>
                       <span>Reconnaissance ISO 26000 complète</span>
@@ -509,7 +512,7 @@ export default function Home() {
                   </ul>
                   <button 
                     onClick={() => setShowQuestionnaire(true)}
-                    className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-all duration-200 cursor-pointer hover:shadow-lg hover:scale-102"
+                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base bg-blue-600 text-white rounded-md"
                   >
                     Commencer le test de pré-scoring
                   </button>
@@ -528,20 +531,19 @@ export default function Home() {
               */}
             </>
           ) : (
-            <div className="flex flex-col gap-8 p-8 max-w-6xl w-full">
+            <div className="flex flex-col gap-3 sm:gap-8 p-3 sm:p-8 max-w-6xl w-full">
               {!result ? (
                 <>
-                  {/* Section 1: Informations du répondant */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Formulaire */}
-                    <div className="w-full p-6 rounded-lg bg-gray-900 border border-gray-700">
-                      <h2 className="text-2xl font-bold mb-6 text-gray-100">Informations du répondant</h2>
+                  {/* Section informations avec responsive */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-8">
+                    <div className="w-full p-3 sm:p-6 rounded-lg bg-gray-900 border border-gray-700">
+                      <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-gray-100">Informations du répondant</h2>
                       {personalInfo.map((field) => (
-                        <div key={field.id} className="mb-4">
-                          <label className="block mb-2 text-gray-300">{field.label}</label>
+                        <div key={field.id} className="mb-3 sm:mb-4">
+                          <label className="block mb-1 sm:mb-2 text-sm sm:text-base text-gray-300">{field.label}</label>
                           {field.type === 'select' ? (
                             <select 
-                              className="border border-gray-600 bg-gray-800 p-2 w-full rounded text-gray-200"
+                              className="border border-gray-600 bg-gray-800 p-2 w-full rounded text-sm sm:text-base text-gray-200"
                               onChange={(e) => handleChange(field.id, e.target.value)}
                             >
                               <option value="">Sélectionnez une option</option>
@@ -552,18 +554,16 @@ export default function Home() {
                           ) : (
                             <input
                               type={field.type}
-                              className="border border-gray-600 bg-gray-800 p-2 w-full rounded text-gray-200"
+                              className="border border-gray-600 bg-gray-800 p-2 w-full rounded text-sm sm:text-base text-gray-200"
                               onChange={(e) => handleChange(field.id, e.target.value)}
                             />
                           )}
                         </div>
                       ))}
                     </div>
-
-                    {/* Fact correspondant */}
-                    <div className="w-full p-6 rounded-lg bg-gray-900 border border-gray-700 flex flex-col justify-center">
-                      <h2 className="text-2xl font-bold mb-4 text-gray-100">Devenez l'organisation dont notre société a besoin</h2>
-                      <p className="text-gray-300">
+                    <div className="w-full p-3 sm:p-6 rounded-lg bg-gray-900 border border-gray-700 flex flex-col justify-center">
+                      <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-100">Devenez l'organisation dont notre société a besoin</h2>
+                      <p className="text-sm sm:text-base text-gray-300">
                         Les attentes des citoyens évoluent, l'entreprise ne peut plus être un simple acteur économique. 
                         Elle doit créer du sens, avoir des valeurs et remplir sa mission en adoptant un modèle 
                         économique positif pour les hommes et son territoire.
@@ -571,13 +571,13 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Nouvelle section: Questionnaire RSE par thématique */}
-                  <div className="w-full p-6 rounded-lg">
+                  {/* Questionnaire avec responsive */}
+                  <div className="w-full p-3 sm:p-6 rounded-lg">
                     {rseThemes.map((theme) => (
-                      <div key={theme.id} className="mb-8 border border-gray-700 rounded-lg p-6 bg-gray-900">
+                      <div key={theme.id} className="mb-3 sm:mb-8 border border-gray-700 rounded-lg p-3 sm:p-6 bg-gray-900">
                         <div className="flex justify-between items-center mb-6">
                           <div className="flex items-center gap-4">
-                            <h2 className="text-2xl font-bold text-gray-100">{theme.title}</h2>
+                            <h2 className="text-xl sm:text-2xl font-bold text-gray-100">{theme.title}</h2>
                             {applicableThemes[theme.id] && (
                               <div className="flex items-center gap-2">
                                 {isThemeCompleted(theme.id) ? (
@@ -674,16 +674,17 @@ export default function Home() {
                   </div>
                 </>
               ) : (
-                <div className="flex flex-col gap-8 p-8 max-w-6xl w-full">
+                <div className="flex flex-col gap-3 sm:gap-8 p-3 sm:p-8 max-w-6xl w-full">
                   {/* En-tête des résultats */}
-                  <div className="flex justify-between items-center">
-                    <h1 className="text-3xl font-bold text-gray-100">Résultats de votre évaluation RSE</h1>
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4">
+                    <h1 className="text-xl sm:text-3xl font-bold text-gray-100">Résultats de votre évaluation RSE</h1>
                     <button 
                       onClick={() => {/* Logique pour télécharger le PDF */}}
-                      className="flex items-center gap-2 px-4 py-2 bg-gray-800 text-gray-200 rounded-lg hover:bg-gray-700"
+                      className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-gray-800 text-gray-200 rounded-lg"
                     >
                       <i className="fas fa-download"></i>
-                      Télécharger le rapport PDF
+                      <span className="hidden sm:inline">Télécharger le rapport PDF</span>
+                      <span className="sm:hidden">Télécharger PDF</span>
                     </button>
                   </div>
 
@@ -772,7 +773,7 @@ export default function Home() {
             </div>
           )}
         </main>
-        <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-gray-400">
+        <footer className="row-start-3 flex gap-2 sm:gap-6 flex-wrap items-center justify-center text-gray-400 text-xs sm:text-base px-2 sm:px-4 text-center">
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4 hover:text-gray-200 transition-colors duration-200 cursor-pointer"
             href="/"
