@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react';
 import Image from "next/image";
+import { Toaster, toast } from 'react-hot-toast';
 import { 
   Phone, 
   Menu, 
@@ -13,6 +14,20 @@ import {
   Linkedin,
   Twitter
 } from 'lucide-react';
+
+// Liste d'entreprises fictives pour les notifications
+const companies = [
+  "TechInnovate SA",
+  "EcoSolutions Plus",
+  "Digital Future Corp",
+  "Green Energy Lab",
+  "Smart Solutions Inc",
+  "Bio Harvest Group",
+  "Next Level Tech",
+  "Sustainable Ways",
+  "Future Builders",
+  "Clean Tech Pro"
+];
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,6 +44,41 @@ export default function Home() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Fonction pour générer une notification aléatoire
+    const showRandomNotification = () => {
+      const randomCompany = companies[Math.floor(Math.random() * companies.length)];
+      const randomScore = Math.floor(Math.random() * (550 - 250 + 1)) + 250; // Score entre 250 et 550
+      
+      toast.success(
+        `${randomCompany} a réalisé son test de maturité RSE : Score ${randomScore} points.`,
+        {
+          duration: 2000, // Réduit à 2 secondes d'affichage
+          position: 'bottom-right',
+          style: {
+            background: '#1e293b',
+            color: '#fff',
+            borderRadius: '10px',
+            padding: '16px',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          },
+          icon: '🎯',
+        }
+      );
+    };
+
+    // Afficher une notification toutes les 3 secondes
+    const interval = setInterval(showRandomNotification, 3000);
+    
+    // Afficher une première notification après 1 seconde
+    const initialTimeout = setTimeout(showRandomNotification, 1000);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(initialTimeout);
+    };
   }, []);
 
   const personalInfo = [
@@ -817,6 +867,23 @@ export default function Home() {
           </a>
         </footer>
       </div>
+
+      {/* Ajouter le composant Toaster */}
+      <Toaster
+        toastOptions={{
+          className: '',
+          duration: 2000, // Réduit à 2 secondes d'affichage
+          pauseDuration: 200000,    // Durée d'affichage du toast
+          removeDelay: 1000, // Durée de l'animation de disparition
+          style: {
+            border: '1px solid #374151',
+            padding: '16px',
+            color: '#fff',
+            background: '#1e293b',
+            transition: 'all 0.3s ease-out', // Animation de transition
+          },
+        }}
+      />
     </>
   );
 }
