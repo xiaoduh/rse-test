@@ -9,7 +9,9 @@ import {
   ChevronDown, 
   ChevronUp,
   Lightbulb,
-  Mail
+  Mail,
+  Linkedin,
+  Twitter
 } from 'lucide-react';
 
 export default function Home() {
@@ -441,7 +443,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="p-2 text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer hover:scale-105"
               >
-                LinkedIn
+                <Linkedin className="h-6 w-6" />
               </a>
               <a 
                 href="https://twitter.com" 
@@ -449,13 +451,14 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="p-2 text-gray-300 hover:text-blue-400 transition-colors duration-200 cursor-pointer hover:scale-105"
               >
-                Twitter
+                <Twitter className="h-6 w-6" />
               </a>
               <a 
                 href="mailto:toto@gmail.com"
-                className="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-all duration-200 cursor-pointer hover:shadow-lg hover:scale-105"
+                className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-all duration-200 cursor-pointer hover:shadow-lg hover:scale-105"
               >
-                Me contacter
+                <Mail className="h-4 w-4" />
+                <span>Me contacter</span>
               </a>
             </div>
           </div>
@@ -488,7 +491,7 @@ export default function Home() {
                   </ul>
                   <button 
                     onClick={() => setShowQuestionnaire(true)}
-                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base bg-blue-600 text-white rounded-md"
+                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-all duration-200 cursor-pointer"
                   >
                     Commencer le test de pré-scoring
                   </button>
@@ -522,7 +525,7 @@ export default function Home() {
                   </ul>
                   <button 
                     onClick={() => setShowQuestionnaire(true)}
-                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base bg-blue-600 text-white rounded-md"
+                    className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base bg-blue-600 text-white rounded-md hover:bg-blue-500 transition-all duration-200 cursor-pointer"
                   >
                     Commencer le test de pré-scoring
                   </button>
@@ -623,7 +626,7 @@ export default function Home() {
                             </span>
                             <button
                               onClick={() => handleThemeToggle(theme.id)}
-                              className={`relative w-14 h-7 rounded-full transition-colors ${
+                              className={`relative w-14 h-7 rounded-full transition-colors cursor-pointer ${
                                 applicableThemes[theme.id] ? 'bg-blue-600' : 'bg-gray-600'
                               }`}
                             >
