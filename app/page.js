@@ -1,6 +1,16 @@
 "use client"
 import { useState, useEffect } from 'react';
 import Image from "next/image";
+import { 
+  Phone, 
+  Menu, 
+  Download, 
+  CheckCircle2, 
+  ChevronDown, 
+  ChevronUp,
+  Lightbulb,
+  Mail
+} from 'lucide-react';
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -375,7 +385,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-2 sm:gap-4">
               <button className="md:hidden text-gray-300 hover:text-white p-2">
-                <i className="fas fa-bars text-lg"></i>
+                <Menu className="h-5 w-5" />
               </button>
               <div className="hidden md:flex items-center space-x-4">
                 <a href="#" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
@@ -392,7 +402,7 @@ export default function Home() {
                 href="tel:+33612345678"
                 className="text-gray-300 hover:text-white font-medium flex items-center gap-1 sm:gap-2 text-sm sm:text-base"
               >
-                <i className="fas fa-phone"></i>
+                <Phone className="h-4 w-4" />
                 <span className="hidden sm:inline">06 12 34 56 78</span>
               </a>
             </div>
@@ -460,19 +470,19 @@ export default function Home() {
                   <p className="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4">Premier niveau de reconnaissance de votre engagement RSE</p>
                   <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 text-sm sm:text-base">
                     <li className="flex items-center gap-2">
-                      <i className="fas fa-check-circle text-green-500"></i>
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
                       <span>Valorisation de votre démarche RSE</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <i className="fas fa-check-circle text-green-500"></i>
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
                       <span>Amélioration de votre image de marque</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <i className="fas fa-check-circle text-green-500"></i>
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
                       <span>Engagement dans une démarche d'amélioration continue</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <i className="fas fa-check-circle text-green-500"></i>
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
                       <span>Accompagnement personnalisé</span>
                     </li>
                   </ul>
@@ -490,23 +500,23 @@ export default function Home() {
                   <p className="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4">Label d'excellence en matière de RSE</p>
                   <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 text-sm sm:text-base">
                     <li className="flex items-center gap-2">
-                      <i className="fas fa-check-circle text-green-500"></i>
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
                       <span>Reconnaissance ISO 26000 complète</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <i className="fas fa-check-circle text-green-500"></i>
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
                       <span>Avantage concurrentiel significatif</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <i className="fas fa-check-circle text-green-500"></i>
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
                       <span>Accès à un réseau d'entreprises engagées</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <i className="fas fa-check-circle text-green-500"></i>
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
                       <span>Attractivité employeur renforcée</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <i className="fas fa-check-circle text-green-500"></i>
+                      <CheckCircle2 className="h-4 w-4 text-green-500" />
                       <span>Performance globale optimisée</span>
                     </li>
                   </ul>
@@ -582,7 +592,7 @@ export default function Home() {
                               <div className="flex items-center gap-2">
                                 {isThemeCompleted(theme.id) ? (
                                   <div className="flex items-center gap-2 text-green-500">
-                                    <i className="fas fa-check-circle"></i>
+                                    <CheckCircle2 className="h-4 w-4" />
                                     <span className="text-sm">
                                       Questions répondues {getThemeProgress(theme.id).completed}/{getThemeProgress(theme.id).total}
                                     </span>
@@ -597,7 +607,11 @@ export default function Home() {
                                     onClick={() => toggleSection(theme.id)}
                                     className="text-blue-400 hover:text-blue-300 ml-2 transition-colors duration-200 cursor-pointer hover:scale-110"
                                   >
-                                    <i className={`fas fa-chevron-${expandedSections[theme.id] ? 'up' : 'down'}`}></i>
+                                    {expandedSections[theme.id] ? (
+                                      <ChevronUp className="h-4 w-4" />
+                                    ) : (
+                                      <ChevronDown className="h-4 w-4" />
+                                    )}
                                   </button>
                                 )}
                               </div>
@@ -682,7 +696,7 @@ export default function Home() {
                       onClick={() => {/* Logique pour télécharger le PDF */}}
                       className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-gray-800 text-gray-200 rounded-lg"
                     >
-                      <i className="fas fa-download"></i>
+                      <Download className="h-4 w-4" />
                       <span className="hidden sm:inline">Télécharger le rapport PDF</span>
                       <span className="sm:hidden">Télécharger PDF</span>
                     </button>
@@ -744,7 +758,7 @@ export default function Home() {
                           </div>
                           <div className="mt-4 p-4 bg-gray-800 rounded-lg">
                             <div className="flex items-start gap-2 text-yellow-400 mb-2">
-                              <i className="fas fa-lightbulb mt-1"></i>
+                              <Lightbulb className="h-4 w-4 mt-1" />
                               <p className="text-gray-200">
                                 {getRecommendations(theme.id, themeScore.percentage)}
                               </p>
